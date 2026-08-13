@@ -182,12 +182,16 @@ export async function sendStellarTestnetPayment(
           .build();
 
         const xdr = transaction.toXDR();
-        const signedXdr = await signTransaction(xdr, {
+        const signedXdrRes = await signTransaction(xdr, {
           networkPassphrase: Networks.TESTNET,
         });
 
-        if (signedXdr) {
-          const txObj = TransactionBuilder.fromXDR(signedXdr, Networks.TESTNET);
+        const signedXdrStr = typeof signedXdrRes === 'string' 
+          ? signedXdrRes 
+          : (signedXdrRes as any)?.signedTxXdr || (signedXdrRes as any)?.signedXdr;
+
+        if (signedXdrStr) {
+          const txObj = TransactionBuilder.fromXDR(signedXdrStr, Networks.TESTNET);
           const response = await horizonServer.submitTransaction(txObj);
           return {
             success: true,
