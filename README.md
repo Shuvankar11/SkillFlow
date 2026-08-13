@@ -114,7 +114,8 @@ Below are the application screenshots demonstrating full functionality:
 ### 4. 🧾 Transaction Result Shown to User
 > Final confirmation receipt modal displaying the generated transaction hash, copy tool, and link to Stellar Expert Explorer.
 
-![Transaction Result](public/screenshots/transaction-result.png)
+<img width="1920" height="1036" alt="{A4E4FC11-4FC1-4806-866C-22281AC2402C}" src="https://github.com/user-attachments/assets/25e3f6ad-13f6-4a00-bec8-28789fce8e54" />
+
 
 ---
 
