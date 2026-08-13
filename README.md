@@ -90,7 +90,8 @@ Below are the application screenshots demonstrating full functionality:
 ### 1. 🔌 Wallet Connected State
 > Displays Freighter wallet authorization state, truncated public address in navbar, and account profile status.
 
-![Wallet Connected State](public/screenshots/wallet-connected.png)
+<img width="1920" height="1033" alt="{67D6A58A-8762-4D5B-AC47-9B06A80AE4CA}" src="https://github.com/user-attachments/assets/48a02f7e-3177-4a06-a6c4-71bf7e4b737e" />
+
 
 ---
 
