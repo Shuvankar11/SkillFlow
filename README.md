@@ -98,7 +98,8 @@ Below are the application screenshots demonstrating full functionality:
 ### 2. 💰 XLM Balance Displayed
 > Live XLM balance fetched directly from Stellar Horizon Testnet API rendered inside the main Wallet Dashboard card.
 
-![Balance Displayed](public/screenshots/balance-displayed.png)
+<img width="1920" height="1033" alt="{67D6A58A-8762-4D5B-AC47-9B06A80AE4CA}" src="https://github.com/user-attachments/assets/b1df66c7-675b-418a-a35c-c3fa5c715dfb" />
+
 
 ---
 
