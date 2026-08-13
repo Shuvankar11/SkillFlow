@@ -2,6 +2,9 @@
 
 > **Empowering global developers through trustless peer-to-peer skill transfers, zero-risk Stellar testnet escrows, and verifiable proof receipts.**
 
+### 🚀 Live Web Application (Vercel Deployment)
+👉 **Experience SkillFlow Live:** [https://skill-flow-navy.vercel.app/](https://skill-flow-navy.vercel.app/)
+
 ---
 
 ## 📖 About SkillFlow
