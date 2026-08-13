@@ -1,31 +1,43 @@
 # 🌌 SkillFlow - Decentralized Verifiable Mentorship & Skill Transfer Network
 
-> **Level 1 - White Belt Submission** for Stellar Testnet Ecosystem Hackathon.
-
-SkillFlow is an ultra-modern, Web3 peer-to-peer mentorship and skill exchange protocol built on the **Stellar Testnet**. It enables developers, designers, and mentors to schedule skill transfer sessions, lock payment into zero-risk smart escrows, and mint verifiable proof receipts upon completion.
+> **Empowering global developers through trustless peer-to-peer skill transfers, zero-risk Stellar testnet escrows, and verifiable proof receipts.**
 
 ---
 
-## ✨ Key Features & Level 1 Requirements
+## 📖 About SkillFlow
 
-### 1. 👛 Freighter Wallet Integration & Setup
-- **Stellar Testnet Connection:** Full integration with the `@stellar/freighter-api` library targeting the Stellar Testnet.
-- **Wallet Connect & Disconnect:** Seamless one-click wallet authorization and safe disconnect state management.
-- **Truncated Public Key:** Clean navigation bar indicator displaying truncated Stellar public address (e.g., `GABC...3X9A`) with copy-to-clipboard functionality.
+**SkillFlow** is a Web3 peer-to-peer mentorship and knowledge transfer platform built on the **Stellar Testnet**. It bridges the gap between skill seekers and expert mentors by combining interactive learning request feeds with cryptographic, zero-risk smart escrows on the Stellar blockchain.
 
-### 2. 📊 Real-Time Horizon Balance Handling
-- **Stellar Horizon API Sync:** Fetches real-time XLM balances directly from `https://horizon-testnet.stellar.org/accounts/{publicKey}`.
-- **Live Dashboard Card:** Clear visual presentation of native XLM live balances alongside testnet token badges.
-- **Friendbot Faucet Integration:** Integrated 10,000 testnet XLM faucet modal connected directly to Stellar Friendbot (`https://friendbot.stellar.org`).
+### 💡 How SkillFlow Works
 
-### 3. 🛡️ Smart Escrow Transaction Flow
-- **Stellar Testnet Payment Execution:** Assembles and submits payment transactions via `@stellar/stellar-sdk` and `@stellar/freighter-api`.
-- **Live Micro-loading Feedback:** Step-by-step progress indicator for signature validation, payload construction, and Horizon core broadcasting.
-- **Instant Result & Receipt:** Displays 64-character transaction hash receipt, copy button, and direct link to **Stellar Expert Testnet Explorer** (`https://stellar.expert/explorer/testnet/tx/{txHash}`).
+1. **User Authentication & Profile Setup:** Users log in or register an account with a custom avatar, bio, and role preferences (Learner, Mentor, or Both).
+2. **Freighter Wallet Integration:** Connect your **Stellar Freighter Wallet** to authorize transactions on the Stellar Testnet safely.
+3. **Session Discovery & Posting:** Browse available skill sessions or create new "Offer to Teach" / "Request to Learn" listings specifying skill category, duration, and XLM fee.
+4. **Smart Escrow Locking:** When accepting a session, native XLM tokens are locked into a secure escrow vault on Stellar Testnet.
+5. **Verifiable Proof Receipts:** Once confirmed, a 64-character transaction hash and verifiable receipt are generated with direct verification links on **Stellar Expert Explorer**.
+
+---
+
+## ✨ Core Architecture & Features
+
+### 1. 👛 Freighter Wallet Integration
+- **Stellar Testnet Protocol:** Built natively with `@stellar/freighter-api` targeting the Stellar Testnet.
+- **One-Click Authorization:** Fast wallet connect & disconnect state management.
+- **Public Key Presentation:** Clean navigation bar indicator displaying truncated public key (`GABC...3X9A`) with copy-to-clipboard functionality.
+
+### 2. 📊 Real-Time Horizon Balance Sync
+- **Live Horizon API Integration:** Queries `https://horizon-testnet.stellar.org/accounts/{publicKey}` for real-time XLM balances.
+- **Dynamic Balance Cards:** Displays live XLM balance alongside testnet MST token indicators.
+- **Friendbot Faucet Access:** Integrated modal connecting directly to Stellar Friendbot (`https://friendbot.stellar.org`) to fund testnet wallets with 10,000 XLM.
+
+### 3. 🛡️ Smart Escrow Transaction Protocol
+- **Stellar Testnet Transaction Assembly:** Assembles and submits payment transactions via `@stellar/stellar-sdk` and `@stellar/freighter-api`.
+- **Live Visual Feedback:** Step-by-step progress indicator for signature validation, payload construction, and Horizon core broadcasting.
+- **Audit & Explorer Link:** Generates transaction hash receipt with direct verification on **Stellar Expert Explorer** (`https://stellar.expert/explorer/testnet/tx/{txHash}`).
 
 ### 4. 👤 Account & Profile Management
-- **MongoDB / Storage User Service:** Mandatory user account creation before wallet linking.
-- **Custom Avatar & Bio:** Allows users to choose custom profile pictures or select high-res avatars.
+- **User Account Service:** Mandatory account registration before wallet linking.
+- **Custom Profile Avatars:** Allows users to choose custom profile picture URLs or select default avatars.
 
 ---
 
@@ -34,7 +46,7 @@ SkillFlow is an ultra-modern, Web3 peer-to-peer mentorship and skill exchange pr
 - **Frontend Core:** React 19, TypeScript, Vite 8
 - **Styling & Aesthetics:** Tailwind CSS v4, Vanilla Glassmorphism CSS, Framer Motion
 - **Web3 Ecosystem:** `@stellar/freighter-api` (v6.0), `@stellar/stellar-sdk` (v16.2)
-- **Icons & Polish:** Lucide-React, Canvas Confetti
+- **Icons & UI:** Lucide-React, Canvas Confetti
 
 ---
 
@@ -43,13 +55,13 @@ SkillFlow is an ultra-modern, Web3 peer-to-peer mentorship and skill exchange pr
 Follow these simple steps to run **SkillFlow** on your local machine:
 
 ### Prerequisites
-1. Node.js (v18.0.0 or higher)
-2. NPM or Yarn package manager
+1. **Node.js** (v18.0.0 or higher)
+2. **NPM** or **Yarn** package manager
 3. **Freighter Wallet** browser extension ([Download Freighter](https://www.freighter.app/)) set to **Testnet** network.
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Shuvankar11/SkillFlow.git
 cd SkillFlow
 ```
 
@@ -71,9 +83,9 @@ npm run build
 
 ---
 
-## 📷 Submission Screenshots & Verification Proofs
+## 📷 Application Verification Screenshots
 
-Below are the required screenshots demonstrating full compliance with the White Belt Level 1 submission criteria:
+Below are the application screenshots demonstrating full functionality:
 
 ### 1. 🔌 Wallet Connected State
 > Displays Freighter wallet authorization state, truncated public address in navbar, and account profile status.
@@ -107,7 +119,8 @@ Below are the required screenshots demonstrating full compliance with the White 
 
 ```
 SkillFlow/
-├── public/                  # Static assets & submission screenshots
+├── public/                  # Static assets & screenshots
+│   └── screenshots/         # Submission verification images
 ├── src/
 │   ├── components/          # Cyber-Cosmic UI components
 │   │   ├── AcceptEscrowModal.tsx       # Transaction flow & feedback modal
@@ -137,4 +150,4 @@ SkillFlow/
 
 ## 📜 License & Compliance
 
-Submitted for the **Stellar Testnet Ecosystem Hackathon (White Belt Level 1)**. Free for use under the MIT License.
+Free for use under the **MIT License**. Built for the Stellar Ecosystem.
