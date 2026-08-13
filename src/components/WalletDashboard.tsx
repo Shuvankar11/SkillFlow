@@ -52,7 +52,7 @@ export const WalletDashboard: React.FC<WalletDashboardProps> = ({
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-purple-500/15 to-amber-500/15 border border-purple-500/30 text-purple-300">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>0.0 MST Token Reserve</span>
-                <span className="text-[10px] text-slate-400 font-mono font-normal">(Level 2 Proofs)</span>
+                <span className="text-[10px] text-slate-400 font-mono font-normal">(MST Protocol)</span>
               </div>
             </div>
 

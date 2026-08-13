@@ -408,25 +408,6 @@ export function App() {
       {/* Top Live Protocol Telemetry Ticker */}
       <LiveTicker />
 
-      {/* Firebase Cloud Telemetry Banner */}
-      <div className="bg-[#040814] border-b border-cyan-500/20 px-4 py-1.5 text-[11px] font-tech text-slate-300 flex items-center justify-between z-40">
-        <div className="flex items-center gap-2 max-w-7xl mx-auto w-full justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-amber-400 font-bold">🔥</span>
-            <span className="font-bold text-white">Firebase Cloud Engine:</span>
-            <span className="text-emerald-400 font-mono font-bold">
-              CONNECTED (Auth + Cloud Firestore 24/7)
-            </span>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-4 text-slate-400">
-            <span>Email/Password Auth + Independent Web3 Wallet Linking</span>
-            <span>•</span>
-            <span className="text-cyan-300 font-mono">Firebase SDK Live</span>
-          </div>
-        </div>
-      </div>
-
       {/* AntiGravity Header Navbar */}
       <Navbar
         wallet={wallet}
@@ -475,7 +456,7 @@ export function App() {
           
           <div className="flex items-center gap-2">
             <Database className="w-4 h-4 text-emerald-400" />
-            <span className="font-bold text-white font-tech text-sm">SkillFlow Protocol + Firebase Cloud</span>
+            <span className="font-bold text-white font-tech text-sm">SkillFlow Protocol</span>
             <span className="text-slate-500">•</span>
             <span className="text-slate-300 font-tech">Decentralized Verifiable Mentorship & Smart Escrow Vault</span>
           </div>
