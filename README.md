@@ -106,7 +106,8 @@ Below are the application screenshots demonstrating full functionality:
 ### 3. ⚡ Successful Testnet Transaction
 > Transaction flow modal showing signature confirmation and XLM locking operation on Stellar Testnet.
 
-![Successful Testnet Transaction](public/screenshots/testnet-transaction.png)
+<img width="1920" height="1034" alt="{1B7070E3-29AD-4B91-A990-7A1AB7798676}" src="https://github.com/user-attachments/assets/3549672b-e421-4148-89ff-b18b0a16fae8" />
+
 
 ---
 
