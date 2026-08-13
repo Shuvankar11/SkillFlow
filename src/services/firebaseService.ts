@@ -106,6 +106,13 @@ export async function loginWithFirebase(
     const cleanInput = emailOrUsername.trim().toLowerCase();
     let targetEmail = cleanInput;
 
+    if (!cleanInput) {
+      return { success: false, message: 'Please enter your email address or username.' };
+    }
+    if (!password) {
+      return { success: false, message: 'Please enter your account password.' };
+    }
+
     // 1. If username was provided (no '@'), resolve user's email from Firestore
     if (!targetEmail.includes('@')) {
       const cleanUser = targetEmail.startsWith('@') ? targetEmail : `@${targetEmail}`;
@@ -123,7 +130,7 @@ export async function loginWithFirebase(
       }
     }
 
-    // 2. Attempt Firebase Auth sign in if targetEmail is an email address
+    // 2. Attempt Firebase Auth sign in with email & password
     if (targetEmail.includes('@')) {
       try {
         const userCredential = await timeoutPromise(
@@ -158,41 +165,36 @@ export async function loginWithFirebase(
         }
 
         localStorage.setItem('skillflow_current_user_profile', JSON.stringify(userProfile));
-        console.log('🔥 User logged in via Firebase:', targetEmail);
+        console.log('🔥 User logged in via Firebase Auth:', targetEmail);
         return { success: true, user: userProfile };
       } catch (authErr: any) {
-        console.warn('Firebase Auth attempt fallback to local session:', authErr);
+        console.warn('Firebase Auth login error:', authErr);
+        
+        // Check if user profile matches local active user session
+        const rawLocal = localStorage.getItem('skillflow_current_user_profile');
+        if (rawLocal) {
+          const localProf: UserProfile = JSON.parse(rawLocal);
+          if (
+            localProf.email?.toLowerCase() === targetEmail ||
+            localProf.username?.toLowerCase() === cleanInput ||
+            localProf.username?.toLowerCase() === `@${cleanInput}`
+          ) {
+            return { success: true, user: localProf };
+          }
+        }
+
+        let msg = 'Invalid email/username or password.';
+        if (authErr.code === 'auth/invalid-credential' || authErr.code === 'auth/user-not-found' || authErr.code === 'auth/wrong-password') {
+          msg = 'Invalid email or password. Please check your credentials or register a new account.';
+        } else if (authErr.code === 'auth/invalid-email') {
+          msg = 'Invalid email address format. Please enter a valid email.';
+        }
+
+        return { success: false, message: msg };
       }
     }
 
-    // 3. Fallback Local Storage Login (prevents hanging / page reloads)
-    const rawLocal = localStorage.getItem('skillflow_current_user_profile');
-    if (rawLocal) {
-      const localProf: UserProfile = JSON.parse(rawLocal);
-      if (
-        localProf.email?.toLowerCase() === cleanInput ||
-        localProf.username?.toLowerCase() === cleanInput ||
-        localProf.username?.toLowerCase() === `@${cleanInput}`
-      ) {
-        return { success: true, user: localProf };
-      }
-    }
-
-    // 4. Default instant user profile session
-    const defaultUser: UserProfile = {
-      id: `usr_${Date.now()}`,
-      fullName: cleanInput.includes('@') ? cleanInput.split('@')[0] : cleanInput.replace('@', ''),
-      username: cleanInput.startsWith('@') ? cleanInput : `@${cleanInput}`,
-      email: cleanInput.includes('@') ? cleanInput : `${cleanInput.replace('@', '')}@example.com`,
-      role: 'Both',
-      bio: 'SkillFlow Web3 Peer Mentorship Member',
-      avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-      stellarAddress: '',
-      createdAt: new Date().toISOString(),
-    };
-
-    localStorage.setItem('skillflow_current_user_profile', JSON.stringify(defaultUser));
-    return { success: true, user: defaultUser };
+    return { success: false, message: 'Account not found. Please click "Create New Account" to register.' };
   } catch (err: any) {
     console.error('Firebase Login Error:', err);
     return { success: false, message: err.message || 'Login failed.' };
