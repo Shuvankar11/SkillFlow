@@ -106,6 +106,7 @@ export const CreateSessionModal: React.FC<CreateSessionModalProps> = ({
         >
           {/* Top Close Button */}
           <button
+            type="button"
             onClick={onClose}
             className="absolute top-6 right-6 p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors"
           >
