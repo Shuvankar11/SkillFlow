@@ -143,11 +143,13 @@ SkillFlow/
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
+├── LICENSE                  # Open-source MIT License
 └── README.md
 ```
 
 ---
 
-## 📜 License & Compliance
+## 📜 License
 
-Free for use under the **MIT License**. Built for the Stellar Ecosystem.
+This project is open-source software licensed under the [MIT License](LICENSE). Built for the Stellar Ecosystem.
+
